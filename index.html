@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Império Mobilidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Modo escuro persistente
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+    <!-- Navbar -->
+    <nav
+      class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-md z-50"
+    >
+      <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <h1 class="text-xl font-bold">Império Mobilidade</h1>
+        <div class="space-x-4">
+          <a href="#inicio" class="hover:text-blue-600 dark:hover:text-blue-400"
+            >Início</a
+          >
+          <a
+            href="#servicos"
+            class="hover:text-blue-600 dark:hover:text-blue-400"
+            >Serviços</a
+          >
+          <a href="#baixar" class="hover:text-blue-600 dark:hover:text-blue-400"
+            >Baixar App</a
+          >
+          <a
+            href="#contato"
+            class="hover:text-blue-600 dark:hover:text-blue-400"
+            >Contato</a
+          >
+          <button
+            id="theme-toggle"
+            class="ml-4 p-2 rounded-md border dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            🌓
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Início -->
+    <section
+      id="inicio"
+      class="h-screen flex flex-col justify-center items-center text-center px-4"
+    >
+      <h2 class="text-4xl font-bold mb-4">
+        Mobilidade com conforto e segurança
+      </h2>
+      <p class="text-lg max-w-xl mb-8">
+        A Império Mobilidade oferece transporte executivo e personalizado para o
+        seu dia a dia, com motoristas qualificados e atendimento diferenciado.
+      </p>
+      <a
+        href="#contato"
+        class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition"
+        >Agende sua corrida</a
+      >
+    </section>
+
+    <!-- Serviços -->
+    <section
+      id="servicos"
+      class="min-h-screen flex flex-col justify-center items-center px-4 py-20 bg-gray-50 dark:bg-gray-800"
+    >
+      <h2 class="text-3xl font-bold mb-8">Nossos Serviços</h2>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Transporte Executivo</h3>
+          <p>
+            Viagens corporativas, traslados e compromissos com conforto e
+            pontualidade.
+          </p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Eventos e Festas</h3>
+          <p>
+            Transporte para casamentos, festas e eventos especiais com
+            atendimento VIP.
+          </p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Viagens Intermunicipais</h3>
+          <p>
+            Conforto e segurança em trajetos longos, com veículos modernos e
+            revisados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Baixar App -->
+    <section
+      id="baixar"
+      class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-20"
+    >
+      <h2 class="text-3xl font-bold mb-6">Baixe o Aplicativo</h2>
+      <p class="max-w-xl mb-8">
+        Tenha a Império Mobilidade sempre à mão. Agende corridas, acompanhe seus
+        motoristas e muito mais direto do seu celular.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.aplicativoimperiomobilidade"
+          target="_blank"
+          class="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition"
+        >
+          📱 Baixar no Google Play
+        </a>
+        <a
+          href="https://apps.apple.com/br/app/imperio-mobilidade/id6746267196"
+          target="_blank"
+          class="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition"
+        >
+          🍎 Baixar na App Store
+        </a>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section
+      id="contato"
+      class="min-h-screen flex flex-col justify-center items-center px-4 py-20"
+    >
+      <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
+      <p class="mb-4">Solicite um orçamento ou tire suas dúvidas:</p>
+      <div class="space-y-3 text-center">
+        <p>📞 (11) 99999-9999</p>
+        <p>✉️ contato@imperiomobilidade.com</p>
+        <a
+          href="https://api.whatsapp.com/send?phone=5511999999999"
+          target="_blank"
+          class="inline-block bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition"
+        >
+          Falar no WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="text-center py-6 border-t border-gray-200 dark:border-gray-700"
+    >
+      <p>© 2025 Império Mobilidade. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      // Alternar tema claro/escuro
+      const toggleBtn = document.getElementById("theme-toggle");
+      toggleBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        localStorage.theme = document.documentElement.classList.contains("dark")
+          ? "dark"
+          : "light";
+      });
+    </script>
+  </body>
+</html>
