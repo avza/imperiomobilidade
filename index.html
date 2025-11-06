@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Império Mobilidade</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Define tema antes de renderizar -->
     <script>
-      // Modo escuro persistente
       if (
         localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
@@ -17,7 +17,22 @@
         document.documentElement.classList.remove("dark");
       }
     </script>
+
+    <!-- Tailwind e ativação do modo escuro -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
+
   <body
     class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
   >
@@ -27,7 +42,7 @@
     >
       <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
         <h1 class="text-xl font-bold">Império Mobilidade</h1>
-        <div class="space-x-4">
+        <div class="space-x-4 flex items-center">
           <a href="#inicio" class="hover:text-blue-600 dark:hover:text-blue-400"
             >Início</a
           >
@@ -46,9 +61,10 @@
           >
           <button
             id="theme-toggle"
-            class="ml-4 p-2 rounded-md border dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700"
+            aria-label="Alternar modo escuro/claro"
+            class="ml-4 p-2 rounded-md border dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           >
-            🌓
+            🌙
           </button>
         </div>
       </div>
@@ -82,10 +98,7 @@
       <div class="grid md:grid-cols-3 gap-6 max-w-5xl">
         <div class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-md">
           <h3 class="text-xl font-semibold mb-2">Transporte Executivo</h3>
-          <p>
-            Viagens corporativas, traslados e compromissos com conforto e
-            pontualidade.
-          </p>
+          <p>Viagens corporativas, compromissos com conforto e pontualidade.</p>
         </div>
         <div class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-md">
           <h3 class="text-xl font-semibold mb-2">Eventos e Festas</h3>
@@ -140,7 +153,7 @@
       <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
       <p class="mb-4">Solicite um orçamento ou tire suas dúvidas:</p>
       <div class="space-y-3 text-center">
-        <p>📞 (41) 996435124</p>
+        <p>📞 (41) 99643-5124</p>
         <p>✉️ imperiomobilidade.matriz@gmail.com</p>
         <a
           href="https://api.whatsapp.com/send?phone=5541996435124"
@@ -159,14 +172,21 @@
       <p>© 2025 Império Mobilidade. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Script do botão de tema -->
     <script>
-      // Alternar tema claro/escuro
       const toggleBtn = document.getElementById("theme-toggle");
+
+      // Ícone inicial
+      toggleBtn.textContent = document.documentElement.classList.contains(
+        "dark"
+      )
+        ? "☀️"
+        : "🌙";
+
       toggleBtn.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
-        localStorage.theme = document.documentElement.classList.contains("dark")
-          ? "dark"
-          : "light";
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.theme = isDark ? "dark" : "light";
+        toggleBtn.textContent = isDark ? "☀️" : "🌙";
       });
     </script>
   </body>
